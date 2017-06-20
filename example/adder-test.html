@@ -26,28 +26,15 @@
     function forEach(array, callback, configurableThisObject){
 //        If configurableThisObject exists
 //        console.log("log1"+configurableThisObject);
-//        var forEachCallback = callback;
+        var forEachCallback = callback;
         if (configurableThisObject){
-//            forEachCallback = callback.bind(configurableThisObject);
-            callback.bind(configurableThisObject);
-            
-            for (var i=0; i < array.length; i++){
-                callback(array[i], i, array).bind(configurableThisObject);
-            }
-        }
-        else{
-            for (var i=0; i < array.length; i++){
-//            forEachCallback(array[i], i, array);
-            callback(array[i], i, array);
-
-        }
+            forEachCallback = callback.bind(configurableThisObject);
+//            callback.bind(configurableThisObject);
             
         }
-        
-
-        
-        
-        
+        for (var i=0; i < array.length; i++){
+            forEachCallback(array[i], i, array);
+        }
     }
     
 tests({
