@@ -35,21 +35,26 @@
 //        }
 //    }
     
-    function forEach(myArray, callbackFunction){
-        for(var i = 0; i<myArray.length(); i++){
-            callbackFunction();
+    function forEach(myArray, callbackFunction, optionalThisObject){
+        var forEachCallback = callbackFunction;
+        if(optionalThisObject){
+            forEachCallback = callbackFunction.bind(optionalThisObject);  
+            
+        }
+        for(var i = 0; i<myArray.length; i++){
+            forEachCallback(myArray[i], i, myArray);
         }
     }
     
 tests({
 
   'It should run the callback function array.length times.': function() {
-      var counter = 0;
+      var numberOfTimesCallbackHasRun = 0;
       forEach([1,2,3], function(){
-         counter++; 
+         numberOfTimesCallbackHasRun++; 
       });
       
-      eq(counter, 3);
+      eq(numberOfTimesCallbackHasRun, 3);
       
   },
   'It should pass in the ith element as the first argument to the callback': function() {
@@ -71,14 +76,13 @@ tests({
           eq(originalArray, testArray);
     })
   },
- 'It should accept a configurable this object': function(){
-     forEach([1], function(){
-         console.log(this.description);
-         eq(this.description, 'I should be accessible inside of the callback')
-         
-     }, {description: 'I should be accessible inside of the callback'});
-     
- }
+  'It should accept an optional this object' : function(){
+      forEach([1, 2, 3], function(){
+          eq(this.description, 'I should be accessible inside of the callback')
+      }, {description: 'I should be accessible inside of the callback'});
+      
+      
+  }
 });
     
 
