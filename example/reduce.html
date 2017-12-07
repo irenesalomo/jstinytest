@@ -45,11 +45,12 @@
     
     tests({
         'If initialValue, callback should run array.length times': function(){
-            var numberOfTimesCallbackHasRun = 0;
-            reduce([0, 1], function(){
-                numberOfTimesCallbackHasRun++;
-            }, 1);
-            eq(numberOfTimesCallbackHasRun, 2)
+//            var numberOfTimesCallbackHasRun = 0;
+//            reduce([0, 1], function(){
+//                numberOfTimesCallbackHasRun++;
+//            }, 1); 
+//            eq(numberOfTimesCallbackHasRun, 2)
+            fail("Testing fail method here");
         },
         
         'If no initialValue, callback should run array.length - 1 times': function(){
@@ -123,7 +124,6 @@
         },
         
         'If initial value, it should exclude holes in the array.': function(){
-            debugger;
             var sum = reduce([,1, 2, ,3,,], function(a, b){
                 return a + b;
             }, 0);

@@ -1,0 +1,56 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+//    function foo(){
+//        throw new Error("oopps foo");
+//    }
+//
+//    function bar(){
+//        return foo();
+//    }
+//
+//    function baz(){
+//        return bar();
+//    }
+//    
+//    try{
+//        baz();
+//
+//    }
+//    catch(e){
+//        console.log(e);
+//        
+//    }
+    
+//    function foo(){
+//        return gee();
+//    }
+//    
+//    foo();
+    
+    [1,2,3].forEach(function forEachSynch(number){
+    console.log(number);
+    });
+
+
+    //Asynchronous
+    function asynchForEach(array, cb){
+        array.forEach(function(number){
+            setTimeout(cb, 0);
+        });
+    }
+
+    asynchForEach([1, 2, 3, 4], function(i){
+        console.log(i);
+    });
+
+    $.on('button', 'click', function onClick() {
+        setTimeout(function timer() {
+            console.log('You clicked the button!');    
+        }, 2000);
+    });
+
+</script>
+
+<html>
+    <button>Click here</button>
+</html>

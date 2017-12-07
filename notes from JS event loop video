@@ -1,0 +1,7 @@
+Video URL: https://www.youtube.com/watch?v=8aGhZQkoFbQ
+Stack: data structure that records where in the program we are.
+when we call the function, it's put on the stack, when it returns, it's popped out from the stack
+
+blocking happens when a piece of code runs very slowly and it blocks other code from running for quite long time
+
+setTimeout doesn't guarantee the code to run after xx seconds but it guarantee the code to run after at minimum xx seconds. since the callback queue needs to wait for call stack to be empty before executing the callback function inside setTimeout

@@ -37,6 +37,13 @@
  * -Joe Walnes
  * MIT License. See https://github.com/joewalnes/jstinytest/
  */
+
+//TODO: Get successess to be green.
+//TODO: Make failures red.
+//TODO: Show stack traces for failures.
+//TODO: Only show stack traces if you click expand.
+
+
 var TinyTest = {
 
     run: function(tests) {
